@@ -1,0 +1,104 @@
+// mixin place
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+  );
+}
+
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+// use: @include adaptiv-font(maketSizeFont, SizeFont)
+
+// grid layout
+$minWidth: 320px;
+$maxWidth: 1800;
+$maxWidthContainer: 1600;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+// ibg(image background)
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  img {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// start reset
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'TTNorms-Regular', 'Times New Roman', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  overflow-x: hidden;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+.white {
+  background-color: #fff!important;
+}
+
+.hide {
+  display: none!important;
+  animation: hideAnimation 1s ease-out forwards;
+}
+
+@keyframes hideAnimation {
+  from {
+    transform: scale(1)
+  }
+  to {
+    transform: scale(0)
+    
+  }
+}

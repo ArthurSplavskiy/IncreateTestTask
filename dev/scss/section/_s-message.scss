@@ -1,0 +1,25 @@
+@import "../config";
+
+.s-message {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: #1D1D1D;
+
+    p {
+        display: inline-block;
+        @include adaptiv-font(40, 18);
+        color: #fff;
+        line-height: 1.5em;
+        &:first-child {
+            margin-bottom: 48px;
+        }
+
+        span {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            color: #34D33B;
+            background-color: #000;
+        }
+    }
+}

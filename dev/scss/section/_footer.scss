@@ -1,0 +1,98 @@
+@import '../config';
+
+.footer {
+    border-top: 1px solid #fff;
+    background: #161616;
+
+    .marguee {
+
+        &__text {
+            @include adaptiv-font(92, 64);
+            line-height: 1em;
+            font-style: normal;
+
+            img {
+                max-width: 65px;
+            }
+        }
+    }
+    &__container {
+        display: flex;
+
+        @media(max-width: 900px) {
+            flex-direction: column;
+        }
+    }
+    &__left-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 50%;
+        border-top: 1px solid #fff;
+        padding: 38px 0;
+
+        @media(max-width: 900px) {
+            flex-basis: 100%;
+        }
+        .insta-page {
+            padding-bottom: 0;
+
+            &__descr {
+                padding: 15px 23px;
+
+                span {
+                    @include adaptiv-font(16, 14);
+                    line-height: 1.2em;
+                    font-style: italic;
+                    color: #000;
+                }
+            }
+            &__descr-text {
+                margin-left: 0;
+                padding: 19px 23px;
+
+                span {
+                    @include adaptiv-font(40, 28);
+                    line-height: 1.2em;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+    &__right-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 50%;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        padding: 38px 0;
+
+        @media(max-width: 900px) {
+            flex-basis: 100%;
+        }
+        @media(max-width: 440px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        &-text {
+            max-width: 410px;
+
+            p:nth-child(1) {
+                text-transform: uppercase;
+                @include adaptiv-font(20, 16);
+                line-height: 1.5em;
+            } 
+            p:nth-child(2) {
+                margin: 40px 0 16px 0;
+                @include adaptiv-font(16, 14);
+                line-height: 1.7em;
+            } 
+            p:nth-child(3) {
+                margin: 40px 0 16px 0;
+                @include adaptiv-font(16, 14);
+                line-height: 1.7em;
+            }
+        }
+    }
+}
